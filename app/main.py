@@ -1,7 +1,4 @@
-from fastapi import FastAPI
-from app.routes import router 
-
-app = FastAPI()
+from app.app_factory import AppFactory
 
 
-app.include_router(router)
+app = AppFactory.create_app()
