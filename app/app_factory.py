@@ -1,10 +1,14 @@
 from fastapi import FastAPI
-from app.routes import router  # Importa tus rutas
+from app.routes.product_routes import router
 from models.db import engine, Base 
+from models.model import Product
 
 class AppFactory:
     @staticmethod
     def create_app() -> FastAPI:
+
+        
+        # Base.metadata.drop_all(bind=engine)
         
         Base.metadata.create_all(bind=engine)
 
